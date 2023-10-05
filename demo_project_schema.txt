@@ -1,0 +1,26 @@
+CREATE TABLE users (
+    id int NOT NULL AUTO_INCREMENT UNIQUE KEY,
+    userId varchar(255) NOT NULL PRIMARY KEY,
+    email varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    name varchar(255),
+    aboutArtist varchar(255),
+    shopBanner varchar(255),
+    aboutStore varchar(255)
+);
+
+CREATE TABLE academics (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    	userId varchar(255) NOT NULL,
+    	degreeName varchar(255),
+    	year varchar(255),
+    	FOREIGN KEY (userId) REFERENCES users(userId)
+);
+
+CREATE TABLE exhibitions (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    	userId varchar(255) NOT NULL,
+    	exhibitionName varchar(255),
+    	year varchar(255),
+    	FOREIGN KEY (userId) REFERENCES users(userId)
+);
